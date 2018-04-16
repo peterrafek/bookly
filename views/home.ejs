@@ -2,25 +2,55 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-        <link rel="stylesheet" href="/public/css/header.css">
+        <!--Card flip from https://codepen.io/IamManchanda/pen/zoaWdW-->
+        <link rel="stylesheet" href="/public/css/home.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <title>Home</title>
     </head>
     <body>
         <% include ./includes/header.ejs %>
-        <h5>Welcome to the home page!</h5>
-        <div class="container flex">
-            <% if (locals.shows) { %>
+        <script>document.querySelector(".card-flip").classList.toggle("flip");</script>
+        <% if (locals.shows) { %>
+            <div class="d-flex flex-wrap justify-content-center all-shows">
                 <% shows.forEach(show => { %>
                     <% if (show.provider == 'Netflix') { %>
-                        <a><img class="card mr-auto" src="<%=show.picture_link%>"></a>
+                        <div class="card-flip">
+                            <div class="flip">
+                                <div class="front">
+                                    <img class="card" src="<%=show.picture_link%>">
+                                </div>
+                                <div class="back">
+                                    <div class="card text-center">
+                                        <!-- Provider image placeholder-->
+                                        <div class="card-title"><%=show.title%></div>
+                                        <div class="card-block">
+                                            <a href="https://netflix.com/<%=show.watch_link%>" class="btn btn-primary">Watch Show</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <% } %>
                     <% if (show.provider == 'HBO') { %>
-                        <a><%=show.title%></a>                        
+                        <div class="card-flip">
+                            <div class="flip">
+                                <div class="front">
+                                    <img class="card-img" src="/public/assets/hbo_splash.jpg">
+                                </div>
+                                <div class="back">
+                                    <div class="card text-center">
+                                        <div class="card-title"><%=show.title%></div>
+                                        <div class="card-block">
+                                            <a href="<%=show.watch_link%>" class="btn btn-primary">Watch Show</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                  
                     <% } %>
                 <% }) %>
-            <% } %>
-        </div>
+            </div>
+        <% } %>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>

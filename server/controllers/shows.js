@@ -6,13 +6,13 @@ module.exports = {
         // Get shows
         const shows = await models.Show.findAll({
             where: {
-                provider: 'Netflix',
+                [Op.or]: [{provider: 'Netflix'},{provider: 'HBO'}]
             },
         });
         res.status(200).render('home', {shows});
     },
     async search(req, res) {
-        var search_string = req.body.key;
+        var search_string = req.body.search_string;
         if (!search_string) {
             console.log("No search string");
             return res.status(400).send({message: 'No search string provided.'});

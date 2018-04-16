@@ -36,7 +36,7 @@ app.set('view engine', 'ejs');
 // const models = require('./server/models');
 
 // Routes
-require('./server/routes/index.js')(app, passport);
+require('./server/routes/index')(app, passport);
 
 // Passport strategies
 require('./server/config/passport.js')(passport);
