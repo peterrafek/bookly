@@ -10,8 +10,9 @@ module.exports = {
             res.redirect('/login');
         }
     },
-    getProfile(req, res) {
-        const user = models.user.findOne({where: {id: req.user.id}});
+    async getProfile(req, res) {
+        const user = await models.User.findOne({where: {id: req.user.id}});
+        console.log(user);
         res.status(200).render('profile', {user});
     },
     getLogin(req, res) {

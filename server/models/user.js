@@ -5,9 +5,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        picture_link: {
-            type: DataTypes.STRING,
-        },
     });
     return User;
 };

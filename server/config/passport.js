@@ -3,11 +3,11 @@ const models = require('../models');
 module.exports = (passport, user) => {
     FacebookStrategy = require('passport-facebook').Strategy;
     const auth = require('./auth');
-    
+
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });
-  
+
     passport.deserializeUser((id, done) => {
           models.User.findById(id).then( (user) => {
               if (user) {
@@ -30,7 +30,7 @@ module.exports = (passport, user) => {
                 },
                 defaults: {
                     facebook_id: profile.id,
-                    name: profile.name.givenName + profile.name.familyName,
+                    name: profile.name.givenName + ' ' + profile.name.familyName,
                 },
             }).spread((user, created) => {
                 if (!user) {
