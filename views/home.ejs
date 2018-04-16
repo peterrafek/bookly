@@ -24,7 +24,7 @@
                                         <!-- Provider image placeholder-->
                                         <div class="card-title"><%=show.title%></div>
                                         <div class="card-block">
-                                            <a href="https://netflix.com/<%=show.watch_link%>" class="btn btn-primary">Watch Show</a>
+                                            <a href="<%=show.watch_link%>"><img src="/public/assets/netflix_logo.png" class="netflix-logo-sm"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +41,24 @@
                                     <div class="card text-center">
                                         <div class="card-title"><%=show.title%></div>
                                         <div class="card-block">
-                                            <a href="<%=show.watch_link%>" class="btn btn-primary">Watch Show</a>
+                                            <a href="<%=show.watch_link%>"><img src="/public/assets/hbo_logo.png" class="hbo-logo-sm"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                  
+                    <% } %>
+                    <% if (show.provider == 'Hulu') { %>
+                        <div class="card-flip">
+                            <div class="flip">
+                                <div class="front">
+                                    <img class="card-img" src="<%=show.picture_link%>">
+                                </div>
+                                <div class="back">
+                                    <div class="card text-center">
+                                        <div class="card-title"><%=show.title%></div>
+                                        <div class="card-block">
+                                            <a href="<%=show.watch_link%>"><img src="/public/assets/hulu_logo.png" class="hulu-logo-sm"></a>
                                         </div>
                                     </div>
                                 </div>

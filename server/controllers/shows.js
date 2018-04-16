@@ -6,7 +6,7 @@ module.exports = {
         // Get shows
         const shows = await models.Show.findAll({
             where: {
-                [Op.or]: [{provider: 'Netflix'}, {provider: 'HBO'}],
+                [Op.or]: [{provider: 'Netflix'}, {provider: 'HBO'}, {provider: 'Hulu'}],
             },
         });
         res.status(200).render('home', {shows});

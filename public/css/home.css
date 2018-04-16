@@ -56,3 +56,14 @@
     transform: rotateY(180deg);
   }
   
+.netflix-logo-sm {
+    height: 25px;
+}
+
+.hbo-logo-sm {
+    height: 25px;
+}
+
+.hulu-logo-sm {
+    height: 20px;
+}
