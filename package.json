@@ -4,9 +4,9 @@
   "description": "Simple website that allows users to find which streaming provider a show or movie is on. Users will also be able to favorite a show or movie.",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "prod": "node app.js",
-    "start": "node app.js"
+    "https": "set NODE_ENV=development && nodemon ./bin/https.js",
+    "http": "set NODE_ENV=development && nodemon ./bin/http.js",
+    "start": "node ./bin/http.js"
   },
   "repository": {
     "type": "git",
