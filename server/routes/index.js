@@ -1,7 +1,6 @@
 const user = require('./user');
 const shows = require('./shows');
 const userController = require('../controllers/user');
-const showsController = require('../controllers/shows');
 
 module.exports = (app, passport) => {
     app.get('/', (req, res) => res.redirect('/shows'));

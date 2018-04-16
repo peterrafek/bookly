@@ -6,26 +6,27 @@ module.exports = {
         // Get shows
         const shows = await models.Show.findAll({
             where: {
-                [Op.or]: [{provider: 'Netflix'},{provider: 'HBO'}]
+                [Op.or]: [{provider: 'Netflix'}, {provider: 'HBO'}],
             },
         });
         res.status(200).render('home', {shows});
     },
     async search(req, res) {
-        var search_string = req.body.search_string;
-        if (!search_string) {
-            console.log("No search string");
-            return res.status(400).send({message: 'No search string provided.'});
+        const searchString = req.body.search_string;
+        if (!searchString) {
+            console.log('No search string');
+            req.flash('error', 'No search string provided.');
+            return res.redirect('/shows');
         }
         const shows = await models.Show.findAll({
             where: {
                 title: {
-                    [Op.iLike]: "%" + search_string + "%",
+                    [Op.iLike]: '%' + searchString +'%',
                 },
             },
         });
         console.log(shows);
         res.status(200).render('home', {shows});
-    }
+    },
 };
 
