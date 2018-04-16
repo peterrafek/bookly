@@ -67,3 +67,16 @@
 .hulu-logo-sm {
     height: 20px;
 }
+
+h5 {
+    display: inline;
+}
+
+.fa-star {
+    color: grey;
+    cursor: pointer;
+}
+
+.fa-star:hover {
+    color: #FFD700;
+}

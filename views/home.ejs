@@ -5,6 +5,7 @@
         <!--Card flip from https://codepen.io/IamManchanda/pen/zoaWdW-->
         <link rel="stylesheet" href="/public/css/home.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
         <title>Home</title>
     </head>
     <body>
@@ -20,10 +21,15 @@
                                     <img class="card" src="<%=show.picture_link%>">
                                 </div>
                                 <div class="back">
-                                    <div class="card text-center">
-                                        <!-- Provider image placeholder-->
-                                        <div class="card-title"><%=show.title%></div>
-                                        <div class="card-block">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5><%=show.title%></h5>
+                                            <div style="float: right;">
+                                                <!--Insert form here-->
+                                                <i class="fas fa-star 2x"></i>
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-center">
                                             <a href="<%=show.watch_link%>"><img src="/public/assets/netflix_logo.png" class="netflix-logo-sm"></a>
                                         </div>
                                     </div>
@@ -35,13 +41,16 @@
                         <div class="card-flip">
                             <div class="flip">
                                 <div class="front">
-                                    <img class="card-img" src="/public/assets/hbo_splash.jpg">
+                                    <div class="card">
+                                        <h5 class="card-header"><%=show.title%></h5> 
+                                        <img class="card-img-bottom" src="/public/assets/hbo_splash.jpg" alt="Card image">
+                                    </div>
                                 </div>
                                 <div class="back">
-                                    <div class="card text-center">
-                                        <div class="card-title"><%=show.title%></div>
-                                        <div class="card-block">
-                                            <a href="<%=show.watch_link%>"><img src="/public/assets/hbo_logo.png" class="hbo-logo-sm"></a>
+                                    <div class="card">
+                                        <h5 class="card-header"><%=show.title%></h5>
+                                        <div class="card-body text-center">
+                                                <a href="<%=show.watch_link%>"><img src="/public/assets/hbo_logo.png" class="hbo-logo-sm"></a>                                            
                                         </div>
                                     </div>
                                 </div>
@@ -52,13 +61,13 @@
                         <div class="card-flip">
                             <div class="flip">
                                 <div class="front">
-                                    <img class="card-img" src="<%=show.picture_link%>">
+                                    <img class="card" src="<%=show.picture_link%>">
                                 </div>
                                 <div class="back">
-                                    <div class="card text-center">
-                                        <div class="card-title"><%=show.title%></div>
-                                        <div class="card-block">
-                                            <a href="<%=show.watch_link%>"><img src="/public/assets/hulu_logo.png" class="hulu-logo-sm"></a>
+                                    <div class="card">
+                                        <h5 class="card-header"><%=show.title%></h5>
+                                        <div class="card-body text-center">
+                                                <a href="<%=show.watch_link%>"><img src="/public/assets/hulu_logo.png" class="hulu-logo-sm"></a>
                                         </div>
                                     </div>
                                 </div>

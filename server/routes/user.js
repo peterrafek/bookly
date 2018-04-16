@@ -7,5 +7,4 @@ const userController = require('../controllers/user');
 router.get('/profile',
     userController.ensureAuthenticated,
     userController.getProfile);
-
 module.exports = router;

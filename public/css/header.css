@@ -6,3 +6,5 @@
     float: none;
     display: inline-block;
 }
+
+.dropdown-menu { right: 0; left: auto; }

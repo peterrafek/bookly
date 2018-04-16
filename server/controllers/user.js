@@ -22,4 +22,10 @@ module.exports = {
             res.status(200).render('login');
         }
     },
+    logout(req, res) {
+        if (req.isAuthenticated()) {
+            req.logout();
+        }
+        res.status(200).render('login');
+    },
 };
