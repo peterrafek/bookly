@@ -33,9 +33,9 @@ Website that allows users to find which streaming provider a show or movie is on
 - [ ] Search for shows from any page (change form action)
 
 ## Technology Used
-Framework: Node.js,
-Server: Express.js,
-Database: Postgres,
-ORM: Sequelize,
-Host: Heroku
+Framework: Node.js  
+Server: Express.js  
+Database: Postgres  
+ORM: Sequelize  
+Host: Heroku  
 :boom:
