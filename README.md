@@ -25,12 +25,12 @@ Website that allows users to find which streaming provider a show or movie is on
 - [x] Display all shows on home page
 - [x] Search for shows from home page
 - [x] Flip cards over to get more details and watch link
-* [] Add and remove favorites from home page
-* [] Display favorites on /user/favorites page
-* [] Remove favorites from /user/favorites page
-* [] Delete profile button on profile page (and verify they want to do that)
-* [] Splash page
-* [] Search for shows from any page (change form action)
+- [] Add and remove favorites from home page
+- [] Display favorites on /user/favorites page
+- [] Remove favorites from /user/favorites page
+- [] Delete profile button on profile page (and verify they want to do that)
+- [] Splash page
+- [] Search for shows from any page (change form action)
 
 ## Technology Used
 Framework: Node.js
