@@ -39,3 +39,8 @@ Database: Postgres
 ORM: Sequelize  
 Host: Heroku  
 :boom:
+
+## Future Ideas
+- Contact providers in order to keep databases updated
+- Set up email forwarding
+- Create API with dev db so others can fork and add to API
