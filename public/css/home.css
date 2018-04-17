@@ -1,0 +1,82 @@
+.card {
+    width: 280px;
+    height: 160px;
+}
+.all-shows {
+    max-width: 840px;
+    margin: auto;
+}
+
+.netflix {
+    width: 280px;
+}
+
+.hbo {
+    width: 280px;
+}
+
+.card-flip {
+    perspective: 1000px;
+  }
+  .card-flip:hover .flip, .card-flip.hover .flip {
+    transform: rotateY(180deg);
+  }
+  
+  .card-flip:hover .flip, .card-flip:hover.hover .flip {
+    transform: rotateY(180deg);
+  }
+  
+  .card-flip,
+  .front,
+  .back {
+    width: 280px;
+    height: 160px;
+  }
+  
+  .flip {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  
+  .front,
+  .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+  }
+  
+.netflix-logo-sm {
+    height: 25px;
+}
+
+.hbo-logo-sm {
+    height: 25px;
+}
+
+.hulu-logo-sm {
+    height: 20px;
+}
+
+h5 {
+    display: inline;
+}
+
+.fa-star {
+    color: grey;
+    cursor: pointer;
+}
+
+.fa-star:hover {
+    color: #FFD700;
+}

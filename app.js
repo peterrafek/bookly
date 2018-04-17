@@ -6,10 +6,8 @@ const passport = require('passport');
 const session = require('express-session');
 const flash = require('express-flash');
 const override = require('method-override');
-const https = require('https');
 const app = express();
 const engines = require('consolidate');
-const fs = require('fs');
 require('dotenv').config();
 app.use(logger('dev'));
 // Body parser
@@ -36,7 +34,7 @@ app.set('view engine', 'ejs');
 // const models = require('./server/models');
 
 // Routes
-require('./server/routes/index.js')(app, passport);
+require('./server/routes/index')(app, passport);
 
 // Passport strategies
 require('./server/config/passport.js')(passport);
@@ -45,21 +43,12 @@ app.get('*', (req, res) => res.status(404).send({
     message: 'Page not found...',
 }));
 
-const options = {
-    key: fs.readFileSync('./key.pem'),
-    cert: fs.readFileSync('./cert.pem'),
-    requestCert: false,
-    rejectUnauthorized: false,
-};
+/*
 const models = require('./server/models');
 models.sequelize.sync().then(function() {
-    console.log('Nice! Database looks fine');
-    }).catch(function(err) {
-        console.log(err, 'Something went wrong with the Database Update!');
-    });
-const port = process.env.PORT || 8081;
-https.createServer(options, app).listen(port, () => {
-    console.log('server running at ' + port);
-});
+    module.exports = app;
+}).catch(function(err) {
+    console.log(err, 'Something went wrong with the Database Update!');
+}); */
 
-
+module.exports = app;

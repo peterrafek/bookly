@@ -26,4 +26,4 @@ for (var i = 0; i < x.length; i++) {
         links.push(x[i].href);
     }
 }
-copy(links)
+copy(links);

@@ -1,3 +1,10 @@
-.right {
-    float: right;
+.navbar-nav {
+    text-align: center;
 }
+
+.center {
+    float: none;
+    display: inline-block;
+}
+
+.dropdown-menu { right: 0; left: auto; }
