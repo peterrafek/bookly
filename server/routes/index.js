@@ -6,6 +6,9 @@ module.exports = (app, passport) => {
     app.get('/', (req, res) => res.redirect('/shows'));
     app.get('/login', userController.getLogin);
     app.get('/logout', userController.logout);
+    app.get('/privacy', (req, res) => {
+        res.render('privacy');
+    });
     // Facebook authentication
     app.get('/auth/facebook', passport.authenticate('facebook'));
     app.get('/auth/facebook/callback',
