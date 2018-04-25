@@ -75,6 +75,23 @@
                             </div>
                         </div>                  
                     <% } %>
+                    <% if (show.provider == 'AmazonVideo') { %>
+                        <div class="card-flip">
+                            <div class="flip">
+                                <div class="front">
+                                    <img class="card" src="<%=show.picture_link%>">
+                                </div>
+                                <div class="back">
+                                    <div class="card">
+                                        <h5 class="card-header"><%=show.title%></h5>
+                                        <div class="card-body text-center">
+                                                <a href="<%=show.watch_link%>"><img src="/public/assets/amazon_logo.png" class="amazon-logo-sm"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                  
+                    <% } %>
                 <% }) %>
             </div>
         <% } %>

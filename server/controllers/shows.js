@@ -3,13 +3,26 @@ const Op = require('sequelize').Op;
 
 module.exports = {
     async getHome(req, res) {
-        // Get shows
+        // Get 30 random shows
+        const numShows = 255;
+        let ids = [];
+        for (let i = 0; i < 30; i++) {
+            // generate random number
+            const id = Math.floor(Math.random() * numShows);
+            // add to array if it isn't in there already
+            if (!ids.includes(id)) {
+                ids.push(id);
+            }
+        }
         const shows = await models.Show.findAll({
             where: {
-                [Op.or]: [{provider: 'Netflix'},
-                {provider: 'HBO'},
-                {provider: 'Hulu'}],
+                id: {
+                    [Op.or]: ids,
+                },
             },
+            order: [
+                ['title', 'ASC'],
+            ],
         });
         res.status(200).render('home', {shows});
     },
