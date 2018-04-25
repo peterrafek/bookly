@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/seanbecker15/wherecanifindit#readme",
   "dependencies": {
+    "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
     "consolidate": "^0.15.1",
     "dotenv": "^5.0.1",
@@ -31,6 +32,7 @@
     "nodemon": "^1.17.3",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg": "^7.4.1",
     "sequelize": "^4.37.6"

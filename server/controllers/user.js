@@ -22,10 +22,17 @@ module.exports = {
             res.status(200).render('login');
         }
     },
+    getSignup(req, res) {
+        if (req.isAuthenticated()) {
+            res.redirect('/shows/');
+        } else {
+            res.status(200).render('signup');
+        }
+    },
     logout(req, res) {
         if (req.isAuthenticated()) {
             req.logout();
         }
-        res.status(200).render('login');
+        res.status(200).redirect('/login');
     },
 };

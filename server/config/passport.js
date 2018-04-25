@@ -1,49 +1,63 @@
 const models = require('../models');
+LocalStrategy = require('passport-local').Strategy;
 
 module.exports = (passport, user) => {
-    FacebookStrategy = require('passport-facebook').Strategy;
-    const auth = require('./auth');
+    passport.use('login', new LocalStrategy(
+        async (email, password, done) => {
+            const user = await models.User.findOne({
+                where: {
+                    email: email,
+                },
+            });
+            if (!user) {
+                return done(null, false, {message: 'Account not found.'});
+            }
+            if (!(await user.verifyPassword(password))) {
+                return done(null, false, {message: 'Incorrect password.'});
+            }
+            return done(null, user);
+        }
+    ));
 
-    passport.serializeUser((user, done) => {
+    passport.use('signup', new LocalStrategy({
+        passReqToCallback: true},
+        async (req, email, password, done) => {
+            // TODO: Check if password is valid
+            const user = await models.User.findOne({
+                where: {
+                    email: email,
+                },
+            });
+            if (user) {
+                return done(null, false, {message:
+                    'Account already existswith email address ' +
+                    '\'' + email + '\'.'});
+            }
+            const hash = await models.User.generateHash(password);
+            const info = {
+                name: req.body.name,
+                email: email,
+                password: hash,
+            };
+            const newUser = await models.User.create(info);
+            if (!newUser) {
+                return done(null, false, {message: 'Database error'});
+            }
+            return done(null, newUser);
+        }
+    ));
+
+    passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
 
-    passport.deserializeUser((id, done) => {
-          models.User.findById(id).then( (user) => {
-              if (user) {
-                  done(null, user.get());
-              } else {
-                  done(user.errors, user);
-              }
-          });
+    passport.deserializeUser(function(id, done) {
+        models.User.findById(id).then((user) => {
+            if (user) {
+                done(null, user.get());
+            } else {
+                done(user.errors, user);
+            }
+        });
     });
-    passport.use(new FacebookStrategy({
-        clientID: process.env.FACEBOOK_APP_ID,
-        clientSecret: process.env.FACEBOOK_APP_SECRET,
-        callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-        profileFields: auth.facebook.FIELDS,
-        },
-        (accessToken, refreshToken, profile, done) => {
-            models.User.findOrCreate({
-                where: {
-                    facebook_id: profile.id,
-                },
-                defaults: {
-                    facebook_id: profile.id,
-                    name: profile.name.givenName + ' ' + profile.name.familyName,
-                },
-            }).spread((user, created) => {
-                if (!user) {
-                    console.log('No user created.');
-                    return done();
-                }
-                if (created) {
-                    return done(null, user);
-                } else {
-                    // TODO: Update user info
-                    return done(null, user);
-                }
-            });
-        }
-    ));
 };

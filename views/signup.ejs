@@ -11,22 +11,22 @@
     </head>
     <body>
         <% if (locals.messages) { %>
-            <div class="flash-messages">
-                <%if (messages.success) { %>
-                    <div class="alert alert-success"><%=messages.success %></div>
-                <%} else if (messages.error) { %>
-                    <div class="alert alert-danger"><%=messages.error %></div>
-                <% } %> 
-            </div>
-            <% } %>
+        <div class="flash-messages">
+            <%if (messages.success) { %>
+                <div class="alert alert-success"><%=messages.success %></div>
+            <%} else if (messages.error) { %>
+                <div class="alert alert-danger"><%=messages.error %></div>
+            <% } %> 
+        </div>
+        <% } %>
         <div class="vertical-center">
             <div class="container">
                 <div class="card">
-                    <h5 class="card-header">Login</h5>
+                    <h5 class="card-header">Sign up</h5>
                     <form class="card-body" method="post">
                         <input type="text" name="username" placeholder="email">
                         <input type="password" name="password" placeholder="password">
-                        <button type="submit" class="btn btn-primary">Log in</button>
+                        <button type="submit" class="btn btn-primary">Sign up</button>
                     </form>
                 </div>
             </div>
