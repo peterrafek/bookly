@@ -84,3 +84,12 @@ h5 {
 .fa-star:hover {
     color: #FFD700;
 }
+
+.star-btn {
+    border: none;
+}
+
+.star-btn:focus {
+    border: none;
+    outline: 0;    
+}

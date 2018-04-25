@@ -43,4 +43,12 @@ module.exports = {
         console.log(shows);
         res.status(200).render('home', {shows});
     },
+    async recordFavorite(req, res) {
+        const showId = req.body.show_id;
+        await models.Favorite.create({
+            user_id: req.user.id,
+            show_id: showId,
+        });
+        res.redirect('/user/favorites');
+    },
 };

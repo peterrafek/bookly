@@ -17,5 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         return match;
     };
 
+    User.associate = (models) => {
+        models.User.hasMany(models.Favorite, {
+          foreignKey: 'user_id',
+          sourceKey: 'id',
+        });
+    };
+
     return User;
 };

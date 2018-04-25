@@ -8,6 +8,8 @@ const userController = require('../controllers/user');
 router.get('/',
     userController.ensureAuthenticated,
     showsController.getHome);
-router.post('/', userController.ensureAuthenticated,
+router.post('/search', userController.ensureAuthenticated,
     showsController.search);
+router.put('/record', userController.ensureAuthenticated,
+    showsController.recordFavorite);
 module.exports = router;

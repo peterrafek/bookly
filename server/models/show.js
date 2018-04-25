@@ -5,5 +5,13 @@ module.exports = (sequelize, DataTypes) => {
         picture_link: DataTypes.STRING,
         provider: DataTypes.STRING,
     });
+
+    Show.associate = (models) => {
+        models.Show.hasMany(models.Favorite, {
+          foreignKey: 'user_id',
+          sourceKey: 'id',
+        });
+    };
+
     return Show;
 };

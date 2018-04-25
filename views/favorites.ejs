@@ -9,15 +9,24 @@
     <body>
         <% include ./includes/header.ejs %>
         <div class="d-flex flex-wrap justify-content-center">
-            <!--User details-->
-            <div class="card" style="max-height: 300px;">
-                <div class="card-header"><h5>Profile Details</h5><p>This is all the information we have about you.</p></div>
+            <!--Favorite shows-->
+            <div class="card">
+                <h5 class="card-header">Favorite Shows</h5>
                 <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Name: <%=user.name%></li>
-                        <li class="list-group-item">Email address: <%=user.email%></li>
-                        <li class="list-group-item"><a href="/user/favorites">View favorite shows</a></li>
-                    </ul>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Show</th>
+                                <th scope="col">Provider</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><a>Show 1</a></td>
+                                <td scope="row">Netflix</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

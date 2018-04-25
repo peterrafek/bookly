@@ -35,4 +35,12 @@ module.exports = {
         }
         res.status(200).redirect('/login');
     },
+    async getFavorites(req, res) {
+        const favorites = await models.Favorite.findAll({
+            where: {
+                user_id: req.user.id,
+            },
+        });
+        res.status(200).json({'favorites': favorites});
+    },
 };

@@ -26,8 +26,10 @@
                                         <div class="card-header">
                                             <h5><%=show.title%></h5>
                                             <div style="float: right;">
-                                                <!--Insert form here-->
-                                                <i class="fas fa-star 2x"></i>
+                                                <form method="post" action="/shows/record?_method=PUT">
+                                                    <input class="d-none" name="show_id" value="<%=show.id%>">
+                                                    <button type="submit" class="star-btn"><i class="fas fa-star 2x"></i></button>
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
