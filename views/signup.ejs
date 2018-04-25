@@ -4,33 +4,42 @@
         <meta charset="UTF-8">
         <meta name="author" content="Sean Becker">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link rel="stylesheet" href="../public/css/signup.css">
-        <title>Login</title>
+        <title>Signup</title>
     </head>
     <body>
         <% if (locals.messages) { %>
-        <div class="flash-messages">
-            <%if (messages.success) { %>
-                <div class="alert alert-success"><%=messages.success %></div>
-            <%} else if (messages.error) { %>
-                <div class="alert alert-danger"><%=messages.error %></div>
-            <% } %> 
-        </div>
-        <% } %>
-        <div class="vertical-center">
-            <div class="container">
-                <div class="card signup">
-                    <h5 class="card-header">Sign up</h5>
-                    <form class="card-body" method="post">
-                        <input type="text" name="name" placeholder="name">
-                        <input type="text" name="username" placeholder="email">
-                        <input type="password" name="password" placeholder="password">
-                        <button type="submit" class="btn btn-primary">Sign up</button>
-                    </form>
+            <div class="flash-messages">
+                <%if (messages.success) { %>
+                    <div class="alert alert-success"><%=messages.success %></div>
+                <%} else if (messages.error) { %>
+                    <div class="alert alert-danger"><%=messages.error %></div>
+                <% } %> 
+            </div>
+            <% } %>
+            <div class="vertical-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                        <section class="login-form">
+                            <form method="post">
+                            <input type="text" name="name" placeholder="Name" required class="form-control input-lg">
+                            <input type="email" name="username" placeholder="Email" required class="form-control input-lg">
+                            <input type="password" name="password" class="form-control input-lg" placeholder="Password" required>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+                            <div>
+                                <p>Already have an account? <a href="/login">Log in.</a></p>
+                            </div>
+                            </form>
+                        </section> 
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>  
                 </div>
             </div>
-        </div>
     </body>
 </html>
