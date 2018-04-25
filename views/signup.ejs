@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../public/css/login.css">
+        <link rel="stylesheet" href="../public/css/signup.css">
         <title>Login</title>
     </head>
     <body>
@@ -21,9 +21,10 @@
         <% } %>
         <div class="vertical-center">
             <div class="container">
-                <div class="card">
+                <div class="card signup">
                     <h5 class="card-header">Sign up</h5>
                     <form class="card-body" method="post">
+                        <input type="text" name="name" placeholder="name">
                         <input type="text" name="username" placeholder="email">
                         <input type="password" name="password" placeholder="password">
                         <button type="submit" class="btn btn-primary">Sign up</button>

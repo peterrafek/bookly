@@ -13,8 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     User.prototype.verifyPassword = async function(password) {
-        console.log('Password (plain): ' + password);
-        console.log('hash: ' + this.password);
         const match = await bcrypt.compare(password, this.password);
         return match;
     };
