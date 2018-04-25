@@ -9,25 +9,37 @@
     <body>
         <% include ./includes/header.ejs %>
         <div class="d-flex flex-wrap justify-content-center">
-            <!--Favorite shows-->
             <div class="card">
-                <h5 class="card-header">Favorite Shows</h5>
-                <div class="card-body">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th scope="col">Show</th>
-                                <th scope="col">Provider</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row"><a>Show 1</a></td>
-                                <td scope="row">Netflix</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <% if (locals.favorites && favorites.length > 0) { %>
+                    <h5 class="card-header">Favorite Shows</h5>
+                    <div class="card-body">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Show</th>
+                                    <th scope="col">Provider</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% favorites.forEach((favorite) => { %>
+                                    <tr>
+                                        <td scope="row">
+                                            <% if (favorite.show.provider === 'Netflix') { %>
+                                                <a href="https://netflix.com/<%=favorite.show.watch_link%>">
+                                            <% } else { %>
+                                                <a href="<%=favorite.show.watch_link%>">
+                                            <% } %>
+                                                <%=favorite.show.title%>
+                                            </a></td>
+                                        <td scope="row"><%=favorite.show.provider%></td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                <% } else { %>
+                    <h5 class="card-header">You don't have any favorites.</h5>
+                <% } %>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

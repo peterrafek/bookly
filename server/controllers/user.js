@@ -40,7 +40,14 @@ module.exports = {
             where: {
                 user_id: req.user.id,
             },
+            include: [{
+                model: models.Show,
+                as: 'show',
+                attributes: {
+                    exclude: ['id', 'picture_link', 'createdAt', 'updatedAt'],
+                },
+            }],
         });
-        res.status(200).json({'favorites': favorites});
+        res.render('favorites', {favorites});
     },
 };
