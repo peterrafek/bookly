@@ -49,6 +49,7 @@ models.sequelize.sync().then(function() {
     module.exports = app;
 }).catch(function(err) {
     console.log(err, 'Something went wrong with the Database Update!');
-});*/
+});
+*/
 
 module.exports = app;

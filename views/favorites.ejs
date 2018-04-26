@@ -18,6 +18,7 @@
                                 <tr>
                                     <th scope="col">Show</th>
                                     <th scope="col">Provider</th>
+                                    <th scope="col">         </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,6 +33,14 @@
                                                 <%=favorite.show.title%>
                                             </a></td>
                                         <td scope="row"><%=favorite.show.provider%></td>
+                                        <td scope="row">
+                                            <form method="post" action="/shows/record?_method=delete">
+                                                <input class="d-none" name="id" value="<%=favorite.id%>">
+                                                <button type="submit" class="close" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 <% }) %>
                             </tbody>
