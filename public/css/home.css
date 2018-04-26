@@ -77,12 +77,7 @@ h5 {
 }
 
 .fa-star {
-    color: grey;
     cursor: pointer;
-}
-
-.fa-star:hover {
-    color: #FFD700;
 }
 
 .star-btn {
@@ -92,4 +87,20 @@ h5 {
 .star-btn:focus {
     border: none;
     outline: 0;    
+}
+
+.star-inactive {
+    color: gray;
+}
+
+.star-inactive:hover {
+    color: #FFD700;
+}
+
+.star-active {
+    color: #FFD700;   
+}
+
+.star-active:hover {
+    color: gray;
 }

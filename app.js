@@ -43,12 +43,12 @@ app.get('*', (req, res) => res.status(404).send({
     message: 'Page not found...',
 }));
 
-
+/*
 const models = require('./server/models');
 models.sequelize.sync().then(function() {
     module.exports = app;
 }).catch(function(err) {
     console.log(err, 'Something went wrong with the Database Update!');
-});
+});*/
 
 module.exports = app;

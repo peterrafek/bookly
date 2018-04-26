@@ -8,8 +8,9 @@ module.exports = (sequelize, DataTypes) => {
 
     Show.associate = (models) => {
         models.Show.hasMany(models.Favorite, {
-          foreignKey: 'user_id',
+          foreignKey: 'show_id',
           sourceKey: 'id',
+          as: 'favorites',
         });
     };
 

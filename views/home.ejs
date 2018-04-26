@@ -15,103 +15,113 @@
         <% if (locals.shows) { %>
             <div class="d-flex flex-wrap justify-content-center all-shows">
                 <% shows.forEach(show => { %>
-                    <% if (show.provider == 'Netflix') { %>
+                    <% if (show.show_node.metadata.provider == 'Netflix') { %>
                         <div class="card-flip">
                             <div class="flip">
                                 <div class="front">
-                                    <img class="card" src="<%=show.picture_link%>">
+                                    <img class="card" src="<%=show.show_node.metadata.picture_link%>">
                                 </div>
                                 <div class="back">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5><%=show.title%></h5>
+                                            <h5><%=show.show_node.metadata.title%></h5>
                                             <div style="float: right;">
                                                 <form method="post" action="/shows/record?_method=PUT">
-                                                    <input class="d-none" name="show_id" value="<%=show.id%>">
-                                                    <button type="submit" class="star-btn"><i class="fas fa-star 2x"></i></button>
+                                                    <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
+                                                    <button type="submit" class="star-btn"><i class="fas fa-star 2x
+                                                        <% if (show.show_node.is_favorite) { %>
+                                                            star-active
+                                                        <% } else { %>
+                                                            star-inactive
+                                                        <% } %>"></i></button>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
-                                            <a href="https://netflix.com/<%=show.watch_link%>"><img src="/public/assets/netflix_logo.png" class="netflix-logo-sm"></a>
+                                            <a href="https://netflix.com/<%=show.show_node.metadata.watch_link%>"><img src="/public/assets/netflix_logo.png" class="netflix-logo-sm"></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     <% } %>
-                    <% if (show.provider == 'HBO') { %>
+                    <% if (show.show_node.metadata.provider == 'HBO') { %>
                         <div class="card-flip">
                             <div class="flip">
                                 <div class="front">
                                     <div class="card">
-                                        <h5 class="card-header"><%=show.title%></h5> 
+                                        <h5 class="card-header"><%=show.show_node.metadata.title%></h5> 
                                         <img class="card-img-bottom" src="/public/assets/hbo_splash.jpg" alt="Card image">
                                     </div>
                                 </div>
                                 <div class="back">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5><%=show.title%></h5>
+                                            <h5><%=show.show_node.metadata.title%></h5>
                                             <div style="float: right;">
                                                 <form method="post" action="/shows/record?_method=PUT">
-                                                    <input class="d-none" name="show_id" value="<%=show.id%>">
+                                                    <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
                                                     <button type="submit" class="star-btn"><i class="fas fa-star 2x"></i></button>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
-                                                <a href="<%=show.watch_link%>"><img src="/public/assets/hbo_logo.png" class="hbo-logo-sm"></a>                                            
+                                                <a href="<%=show.show_node.metadata.watch_link%>"><img src="/public/assets/hbo_logo.png" class="hbo-logo-sm"></a>                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>                  
                     <% } %>
-                    <% if (show.provider == 'Hulu') { %>
+                    <% if (show.show_node.metadata.provider == 'Hulu') { %>
                         <div class="card-flip">
                             <div class="flip">
                                 <div class="front">
-                                    <img class="card" src="<%=show.picture_link%>">
+                                    <img class="card" src="<%=show.show_node.metadata.picture_link%>">
                                 </div>
                                 <div class="back">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5><%=show.title%></h5>
+                                            <h5><%=show.show_node.metadata.title%></h5>
                                             <div style="float: right;">
                                                 <form method="post" action="/shows/record?_method=PUT">
-                                                    <input class="d-none" name="show_id" value="<%=show.id%>">
-                                                    <button type="submit" class="star-btn"><i class="fas fa-star 2x"></i></button>
+                                                    <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
+                                                    <button type="submit" class="star-btn"><i class="fas fa-star 2x
+                                                        <% if (show.show_node.is_favorite) { %>
+                                                            star-active
+                                                        <% } else { %>
+                                                            star-inactive
+                                                        <% } %>"></i></button>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
-                                                <a href="<%=show.watch_link%>"><img src="/public/assets/hulu_logo.png" class="hulu-logo-sm"></a>
+                                                <a href="<%=show.show_node.metadata.watch_link%>"><img src="/public/assets/hulu_logo.png" class="hulu-logo-sm"></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>                  
                     <% } %>
-                    <% if (show.provider == 'AmazonVideo') { %>
+                    <% if (show.show_node.provider == 'AmazonVideo') { %>
                         <div class="card-flip">
                             <div class="flip">
                                 <div class="front">
-                                    <img class="card" src="<%=show.picture_link%>">
+                                    <img class="card" src="<%=show.show_node.picture_link%>">
                                 </div>
                                 <div class="back">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5><%=show.title%></h5>
+                                            <h5><%=show.show_node.title%></h5>
                                             <div style="float: right;">
                                                 <form method="post" action="/shows/record?_method=PUT">
-                                                    <input class="d-none" name="show_id" value="<%=show.id%>">
+                                                    <input class="d-none" name="show_id" value="<%=show.show_node.id%>">
                                                     <button type="submit" class="star-btn"><i class="fas fa-star 2x"></i></button>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
-                                                <a href="<%=show.watch_link%>"><img src="/public/assets/amazon_logo.png" class="amazon-logo-sm"></a>
+                                                <a href="<%=show.show_node.watch_link%>"><img src="/public/assets/amazon_logo.png" class="amazon-logo-sm"></a>
                                         </div>
                                     </div>
                                 </div>

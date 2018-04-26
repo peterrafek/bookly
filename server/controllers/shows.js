@@ -14,7 +14,7 @@ module.exports = {
                 ids.push(id);
             }
         }
-        const shows = await models.Show.findAll({
+        const shows_arr = await models.Show.findAll({
             where: {
                 id: {
                     [Op.or]: ids,
@@ -23,6 +23,25 @@ module.exports = {
             order: [
                 ['title', 'ASC'],
             ],
+            include: [{
+                model: models.Favorite,
+                as: 'favorites',
+                attributes: ['user_id'],
+            }],
+        });
+        let shows = [];
+        shows_arr.forEach((show) => {
+            let isFavorite = false;
+            show.favorites.forEach((favorite) => {
+                if (favorite.dataValues.user_id === req.user.id) {
+                    isFavorite = true;
+                }
+            });
+            const show_node = {
+                metadata: show,
+                is_favorite: isFavorite,
+            };
+            shows.push({show_node});
         });
         res.status(200).render('home', {shows});
     },
