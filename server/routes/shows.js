@@ -10,6 +10,8 @@ router.get('/',
     showsController.getHome);
 router.post('/search', userController.ensureAuthenticated,
     showsController.search);
-router.put('/record', userController.ensureAuthenticated,
+router.post('/record', userController.ensureAuthenticated,
     showsController.recordFavorite);
+router.delete('/record', userController.ensureAuthenticated,
+    showsController.deleteFavorite);
 module.exports = router;

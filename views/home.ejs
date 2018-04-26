@@ -26,15 +26,17 @@
                                         <div class="card-header">
                                             <h5><%=show.show_node.metadata.title%></h5>
                                             <div style="float: right;">
-                                                <form method="post" action="/shows/record?_method=PUT">
-                                                    <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
-                                                    <button type="submit" class="star-btn"><i class="fas fa-star 2x
-                                                        <% if (show.show_node.is_favorite) { %>
-                                                            star-active
-                                                        <% } else { %>
-                                                            star-inactive
-                                                        <% } %>"></i></button>
-                                                </form>
+                                                <% if (show.show_node.is_favorite) { %>
+                                                    <form method="post" action="/shows/record?_method=delete">
+                                                        <input class="d-none" name="id" value="<%=show.show_node.favorite_id%>">
+                                                        <button type="submit" class="star-btn"><i class="fas fa-star 2x star-active"></i></button>
+                                                    </form>
+                                                <% } else { %>
+                                                    <form method="post" action="/shows/record">
+                                                        <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
+                                                        <button type="submit" class="star-btn"><i class="fas fa-star 2x star-inactive"></i></button>
+                                                    </form>
+                                                <% } %>
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
@@ -59,10 +61,17 @@
                                         <div class="card-header">
                                             <h5><%=show.show_node.metadata.title%></h5>
                                             <div style="float: right;">
-                                                <form method="post" action="/shows/record?_method=PUT">
-                                                    <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
-                                                    <button type="submit" class="star-btn"><i class="fas fa-star 2x"></i></button>
-                                                </form>
+                                                    <% if (show.show_node.is_favorite) { %>
+                                                        <form method="post" action="/shows/record?_method=delete">
+                                                            <input class="d-none" name="id" value="<%=show.show_node.favorite_id%>">
+                                                            <button type="submit" class="star-btn"><i class="fas fa-star 2x star-active"></i></button>
+                                                        </form>
+                                                    <% } else { %>
+                                                        <form method="post" action="/shows/record">
+                                                            <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
+                                                            <button type="submit" class="star-btn"><i class="fas fa-star 2x star-inactive"></i></button>
+                                                        </form>
+                                                    <% } %>
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
@@ -84,15 +93,17 @@
                                         <div class="card-header">
                                             <h5><%=show.show_node.metadata.title%></h5>
                                             <div style="float: right;">
-                                                <form method="post" action="/shows/record?_method=PUT">
-                                                    <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
-                                                    <button type="submit" class="star-btn"><i class="fas fa-star 2x
-                                                        <% if (show.show_node.is_favorite) { %>
-                                                            star-active
-                                                        <% } else { %>
-                                                            star-inactive
-                                                        <% } %>"></i></button>
-                                                </form>
+                                                <% if (show.show_node.is_favorite) { %>
+                                                    <form method="post" action="/shows/record?_method=delete">
+                                                        <input class="d-none" name="id" value="<%=show.show_node.favorite_id%>">
+                                                        <button type="submit" class="star-btn"><i class="fas fa-star 2x star-active"></i></button>
+                                                    </form>
+                                                <% } else { %>
+                                                    <form method="post" action="/shows/record">
+                                                        <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
+                                                        <button type="submit" class="star-btn"><i class="fas fa-star 2x star-inactive"></i></button>
+                                                    </form>
+                                                <% } %>
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
@@ -114,10 +125,17 @@
                                         <div class="card-header">
                                             <h5><%=show.show_node.title%></h5>
                                             <div style="float: right;">
-                                                <form method="post" action="/shows/record?_method=PUT">
-                                                    <input class="d-none" name="show_id" value="<%=show.show_node.id%>">
-                                                    <button type="submit" class="star-btn"><i class="fas fa-star 2x"></i></button>
-                                                </form>
+                                                <% if (show.show_node.is_favorite) { %>
+                                                    <form method="post" action="/shows/record?_method=delete">
+                                                        <input class="d-none" name="id" value="<%=show.show_node.favorite_id%>">
+                                                        <button type="submit" class="star-btn"><i class="fas fa-star 2x star-active"></i></button>
+                                                    </form>
+                                                <% } else { %>
+                                                    <form method="post" action="/shows/record">
+                                                        <input class="d-none" name="show_id" value="<%=show.show_node.metadata.id%>">
+                                                        <button type="submit" class="star-btn"><i class="fas fa-star 2x star-inactive"></i></button>
+                                                    </form>
+                                                <% } %>
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
