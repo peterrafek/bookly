@@ -114,16 +114,16 @@
                             </div>
                         </div>                  
                     <% } %>
-                    <% if (show.show_node.provider == 'AmazonVideo') { %>
+                    <% if (show.show_node.metadata.provider == 'AmazonVideo') { %>
                         <div class="card-flip">
                             <div class="flip">
                                 <div class="front">
-                                    <img class="card" src="<%=show.show_node.picture_link%>">
+                                    <img class="card" src="<%=show.show_node.metadata.picture_link%>">
                                 </div>
                                 <div class="back">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5><%=show.show_node.title%></h5>
+                                            <h5><%=show.show_node.metadata.title%></h5>
                                             <div style="float: right;">
                                                 <% if (show.show_node.is_favorite) { %>
                                                     <form method="post" action="/shows/record?_method=delete">
@@ -139,7 +139,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body text-center">
-                                                <a href="<%=show.show_node.watch_link%>"><img src="/public/assets/amazon_logo.png" class="amazon-logo-sm"></a>
+                                                <a href="<%=show.show_node.metadata.watch_link%>"><img src="/public/assets/amazon_logo.png" class="amazon-logo-sm"></a>
                                         </div>
                                     </div>
                                 </div>
