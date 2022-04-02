@@ -1,5 +1,6 @@
-# [wherecanifindit](wherecaniwatch.herokuapp.com)
-Website that allows users to find which streaming provider a show or movie is on. Users will also be able to favorite a show or movie.
+# [Media Aggregation Tool](wherecaniwatch.herokuapp.com)
+## Description
+Wep application that allows users to find which streaming provider a show or movie is on. Please note that this project was made in one week for a Purdue Computer Science class.
 
 
 ## Setup
